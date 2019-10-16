@@ -15,15 +15,20 @@ class Player
   def gets_damage(n) 
     @life_points -= n
     
-    puts "Le joueur " + @name + " a été tué" if @life_points <= 0
+    #puts "Le joueur " + @name + " a été tué" if @life_points <= 0
   end
   
   def attacks(player)
     damage = compute_damage
-    
+
     puts "Le joueur " + @name + " attaque le joueur " + player.name + " il lui inflige " + damage.to_s + " points de dommages"
     
     player.gets_damage(damage)
+    
+    puts "Le joueur " + player.name + " a été tué" if player.life_points <= 0
+    puts "************"
+    
+
   end
   
   def compute_damage
